@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "/poke-tryunfo/static/css/main.6b02e357.css",
+    "main.js": "/poke-tryunfo/static/js/main.c3ff79a4.js",
+    "static/media/divmaster.jpg": "/poke-tryunfo/static/media/divmaster.021610b7e6d45759d79f.jpg",
+    "static/media/logo.png": "/poke-tryunfo/static/media/logo.9631a0e0100b336ef8dd.png",
+    "static/media/pokebok.png": "/poke-tryunfo/static/media/pokebok.2e85c377d9d570e8ce5b.png",
+    "static/media/pokeb.png": "/poke-tryunfo/static/media/pokeb.4d0f791a7a4ee929332a.png",
+    "static/media/wallpaper.jpg": "/poke-tryunfo/static/media/wallpaper.98a0fec319e0af3a3cae.jpg",
+    "index.html": "/poke-tryunfo/index.html",
+    "main.6b02e357.css.map": "/poke-tryunfo/static/css/main.6b02e357.css.map",
+    "main.c3ff79a4.js.map": "/poke-tryunfo/static/js/main.c3ff79a4.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.6b02e357.css",
+    "static/js/main.c3ff79a4.js"
+  ]
+}

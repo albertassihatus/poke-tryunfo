@@ -1,5 +1,6 @@
 import React from 'react';
 import Card from './components/Card';
+import CurrentCard from './components/CurrentCard';
 import Form from './components/Form';
 import logo from './images/logo.png';
 import './styles/card.css';
@@ -17,7 +18,14 @@ class App extends React.Component {
       rare: '',
       trunfo: false,
       arrayCards: [],
+      buttonDisabled: true,
       imgUrl: '',
+      count: 1,
+      currentCard: '',
+      isSelect: false,
+      haveCard: 0,
+      show: false,
+      id: '',
     };
   }
 
@@ -27,7 +35,7 @@ class App extends React.Component {
     const sum = Number(attr1) + Number(attr2) + Number(attr3); // -> Number para transformar string em num parseInt tava dando erro no lint.
 
     const attrTotal = 300;
-    const attrMax = 90;
+    const attrMax = 99;
     const attrMin = 0;
 
     const anyInfo = (
@@ -61,13 +69,12 @@ class App extends React.Component {
     this.setState(() => ({
       [target.name]: target.type === 'checkbox' ? target.checked : target.value,
     }), () => {
-      const {
-        image,
-      } = this.state;
+      const { image, name } = this.state;
       if (target.name === 'image') {
         fetch(`https://pokeapi.co/api/v2/pokemon/${image.toLowerCase()}`)
           .then((response) => response.json())
           .then((data) => this.setState({
+            id: data.id,
             imgUrl: data
               .sprites
               .versions['generation-v']['black-white'].animated.front_default,
@@ -75,7 +82,7 @@ class App extends React.Component {
           .catch(() => this.setState((previousState) => previousState));
       }
     });
-  }
+  };
 
   onSaveButtonClick = (e) => {
     e.preventDefault();
@@ -90,21 +97,47 @@ class App extends React.Component {
       rare: '',
       imgUrl: '',
       arrayCards: [...prev.arrayCards, prev],
+      currentCard: '',
+      haveCard: true,
+      show: false,
+      count: prev.count + 1,
+      id: '',
     }
     ));
+  }
+
+  setShow = (param) => {
+    this.setState({
+      show: param,
+    });
   }
 
   removeCard = (name) => {
     const { arrayCards } = this.state;
     this.setState({
       arrayCards: arrayCards.filter((item) => item.name !== name),
+      isSelect: false,
+    }, () => {
+      if (arrayCards.length === 0) {
+        this.setState({ haveCard: false });
+      }
+    });
+  }
+
+  selectCard = (name) => {
+    const { arrayCards } = this.state;
+    this.setState({
+      currentCard: arrayCards.find((item) => item.name === name),
+      isSelect: true,
+      show: true,
     });
   }
 
   render() {
     const { name, description, attr1,
       attr2, attr3, image,
-      rare, trunfo, arrayCards, imgUrl } = this.state;
+      rare, trunfo, arrayCards, imgUrl,
+      currentCard, isSelect, haveCard, show, id, buttonDisabled } = this.state;
 
     return (
       <div>
@@ -140,10 +173,12 @@ class App extends React.Component {
               cardImage={ imgUrl }
               cardRare={ rare }
               cardTrunfo={ trunfo }
+              id={ id }
             />
           </div>
         </div>
-        <p className="uDeck">Deck</p>
+        { arrayCards.length > 0
+          ? <p className="uDeck">Deck</p> : ''}
         <div className="deckContainer">
           {
             arrayCards.map((item, index) => (
@@ -157,8 +192,16 @@ class App extends React.Component {
                   cardImage={ item.imgUrl }
                   cardTrunfo={ item.trunfo }
                   cardRare={ item.rare }
-
+                  id={ item.id }
+                  count={ item.count }
                 />
+                <button
+                  className="selectBtn"
+                  type="button"
+                  onClick={ () => this.selectCard(arrayCards[index].name) }
+                >
+                  Selecionar
+                </button>
                 <button
                   className="deleteButton"
                   type="button"
@@ -166,16 +209,31 @@ class App extends React.Component {
                   onClick={ () => this.removeCard(arrayCards[index].name) }
                 >
                   Excluir
-
                 </button>
               </div>
             ))
           }
-
         </div>
+        {
+          isSelect
+            ? <div className="current-card">
+              {
+                show ? isSelect && <CurrentCard
+                  currentCard={ currentCard }
+                /> : null
+              }
+              <div className="togglemap">
+                <button
+                  type="button"
+                  onClick={ () => this.setShow(!show) }
+                >
+                  {!show ? 'Show Selected Card' : 'Close'}
+                </button>
+              </div>
+              </div> : null
+        }
       </div>
     );
   }
 }
-
 export default App;

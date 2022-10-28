@@ -6,14 +6,14 @@ class Card extends React.Component {
   render() {
     const { cardName,
       cardAttr1, cardAttr2, cardAttr3,
-      cardImage, cardRare, cardTrunfo,
+      cardImage, cardRare, cardTrunfo, count, id,
     } = this.props;
     return (
       <div>
         <div className="previewCard">
           <div
-            className={ `outer-bound ${cardRare === 'raro' && 'silver'}
-    ${cardRare === 'muito raro' && 'gold'}` }
+            className={ `backCard ${cardRare === 'raro' && 'rare'}
+    ${cardRare === 'muito raro' && 'epic'}` }
           >
             <p className="name" data-testid="name-card">{cardName}</p>
             <img src={ cardImage } alt={ cardImage } data-testid="image-card" />
@@ -28,11 +28,18 @@ class Card extends React.Component {
               {cardAttr2}
 
             </p>
+            <p className="hitPoints">
+              HP:
+            </p>
             <p className="hp" data-testid="attr3-card">
               {cardAttr3}
             </p>
             {cardTrunfo
               && <p className="trunfo" data-testid="trunfo-card"><FaStar /></p>}
+
+            <p className="counterCard">{count}</p>
+
+            <p className="idCount">{id}</p>
           </div>
         </div>
       </div>
@@ -49,5 +56,6 @@ Card.propTypes = {
   cardImage: PropTypes.string.isRequired,
   cardRare: PropTypes.string.isRequired,
   cardTrunfo: PropTypes.bool.isRequired,
+  count: PropTypes.string.isRequired,
 };
 export default Card;

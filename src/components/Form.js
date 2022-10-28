@@ -9,7 +9,7 @@ class Form extends React.Component {
       isSaveButtonDisabled, onSaveButtonClick, hasTrunfo } = this.props;
     return (
       <div>
-        <form className="formulario">
+        <form className="formulario" id="formTeste">
 
           <h2>Adicionar nova carta Pokémon</h2>
 
@@ -113,16 +113,16 @@ class Form extends React.Component {
                 </label>
               )
           }
-          <div
-            aria-label="BTN"
-            className="pkbtn"
-            role="button"
-            tabIndex={ 0 }
-            disabled={ isSaveButtonDisabled }
-            onClick={ onSaveButtonClick }
-            onKeyDown={ onSaveButtonClick }
-          />
         </form>
+        <button
+          className="pokeballBtn"
+          aria-label="BTN"
+          type="submit"
+          disabled={ isSaveButtonDisabled }
+          onClick={ onSaveButtonClick }
+        >
+          <img alt="" />
+        </button>
       </div>
     );
   }

@@ -55,6 +55,9 @@ body{
 }
 
 .preview{
+  font-family: 'Segoe UI', 'Roboto', 'Oxygen',
+  'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  sans-serif;
     margin: auto;
     display: flex;
     align-items: flex-end;
@@ -67,7 +70,7 @@ body{
     opacity: 0.93;
 }
 
-.outer-bound {
+.backCard {
     background-color: #f99185;
     border: 10px solid rgba(0, 0, 0, 0.25);
     border-radius: 10px;
@@ -76,7 +79,7 @@ body{
     width: 300px;
   }
 
-  .gold {
+  .epic {
     background-image: linear-gradient(135deg, 
     #66dbea 0%,
     #667eea 5%,
@@ -122,7 +125,7 @@ body{
   width: 93.4%;
   height: auto;
   left: 10px;
-  top: 300px;
+  top: 295px;
   border: 2px solid rgba(0, 0, 0, 0.25);
   border-radius: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.25);
@@ -138,8 +141,20 @@ body{
   text-align: center;
   position: absolute;
   padding: 5px;
-  left: 270px;
+  left: 273px;
   top: -13px;
+}
+
+.hitPoints {
+  font-size: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: black;
+  position: absolute;
+  padding: 5px;
+  left: 250px;
+  top: 10px;
 }
 
 .trunfo {
@@ -157,7 +172,7 @@ p {
   color: white;
 }
 
-  .silver {
+  .rare {
     background-color: silver;
   }
 
@@ -185,6 +200,9 @@ img {
 }
 
 .previewCard {
+  font-family: 'Segoe UI', 'Roboto', 'Oxygen',
+  'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  sans-serif;
     position: relative;
     width: 300px;
     height: 350px;
@@ -201,9 +219,19 @@ img {
 }
 
 .deleteButton { 
+  cursor: pointer;
   margin-top: 10px;
   padding: 10px;
   width: 100px;
+  font-size: 18px;
+  margin-left: 10px;
+}
+
+.selectBtn { 
+  cursor: pointer;
+  text-align: center;
+  margin-top: 10px;
+  padding: 10px;
   font-size: 18px;
   margin-left: 10px;
 }
@@ -216,6 +244,7 @@ img {
   font-weight: bold;
   margin-bottom: 2px;
 }
+
 .formulario {
 color: white;
 font-size: 1.3rem;
@@ -226,6 +255,7 @@ h2 {
   color: white;
   filter: drop-shadow(0 0 0.75rem white);
 }
+
 .uDeck {
   color: black;
   font-size: 48px;
@@ -234,6 +264,7 @@ h2 {
 }
 
 .pkbtn {
+  /* pointer-events: none; */
   position: relative;
   top: 10px;
   left: 170px;
@@ -246,12 +277,73 @@ h2 {
 
 }
 
+.pokeballBtn {
+  position: relative;
+  border-radius: 100%;
+  border-style: hidden;
+  filter: drop-shadow(0 0 0.75rem white);
+  width: 65px;
+  height: 65px;
+  bottom: -10px;
+  left: 10px;
+  background-position: center;
+  background-image: url('../images/pokeb.png');
+  background-repeat: no-repeat;
+  background-size: 117%;
+  /* background-size: 105px 105px; */
+}
+
+.pokeballBtn:hover {
+  cursor: pointer;
+  background-image: url('../images/pokebok.png');
+  filter: drop-shadow(0 0 0.75rem crimson);
+}
+
+
 .pkbtn:hover {
   cursor: pointer;
   background-image: url('../images/pokebok.png');
   filter: drop-shadow(0 0 0.75rem crimson);
 }
 
+.current-card {
+  height: 360px;
+  top: 200px;
+  position: fixed;
+}
+
+.togglemap {
+  position: relative;
+}
+
+.idCount {
+  background-color: rgba(129, 129, 129, 0.25);
+  text-align: center;
+  padding: 8px;
+  width: auto;
+  height: auto;
+  top: 50px;
+  color: black;
+  margin: auto;
+  position: absolute;
+  font-size: 28px;
+  border: 2px solid rgba(0, 0, 0, 0.25);
+  border-radius: 100%;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.25);
+}
+
+.counterCard {
+  text-align: center;
+  padding: 8px;
+  width: auto;
+  height: auto;
+  top: 335px;
+  right:-8px;
+  color: black;
+  margin: auto;
+  position: absolute;
+  font-size: 17px;
+}
 
 /* KeyFrames */
 @-webkit-keyframes gradient-animation {

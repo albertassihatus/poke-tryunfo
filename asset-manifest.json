@@ -1,18 +1,20 @@
 {
   "files": {
-    "main.css": "/poke-tryunfo/static/css/main.128cb706.css",
-    "main.js": "/poke-tryunfo/static/js/main.c416503d.js",
+    "main.css": "/poke-tryunfo/static/css/main.3831ef8e.css",
+    "main.js": "/poke-tryunfo/static/js/main.3f37c758.js",
     "static/media/divmaster.jpg": "/poke-tryunfo/static/media/divmaster.021610b7e6d45759d79f.jpg",
     "static/media/logo.png": "/poke-tryunfo/static/media/logo.9631a0e0100b336ef8dd.png",
     "static/media/pokebok.png": "/poke-tryunfo/static/media/pokebok.2e85c377d9d570e8ce5b.png",
     "static/media/pokeb.png": "/poke-tryunfo/static/media/pokeb.4d0f791a7a4ee929332a.png",
     "static/media/wallpaper.jpg": "/poke-tryunfo/static/media/wallpaper.98a0fec319e0af3a3cae.jpg",
+    "static/media/formCard.png": "/poke-tryunfo/static/media/formCard.a29d3dd2396a97c61958.png",
+    "static/media/deckCard.png": "/poke-tryunfo/static/media/deckCard.cbaa27f030e15b0dfa04.png",
     "index.html": "/poke-tryunfo/index.html",
-    "main.128cb706.css.map": "/poke-tryunfo/static/css/main.128cb706.css.map",
-    "main.c416503d.js.map": "/poke-tryunfo/static/js/main.c416503d.js.map"
+    "main.3831ef8e.css.map": "/poke-tryunfo/static/css/main.3831ef8e.css.map",
+    "main.3f37c758.js.map": "/poke-tryunfo/static/js/main.3f37c758.js.map"
   },
   "entrypoints": [
-    "static/css/main.128cb706.css",
-    "static/js/main.c416503d.js"
+    "static/css/main.3831ef8e.css",
+    "static/js/main.3f37c758.js"
   ]
 }

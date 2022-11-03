@@ -1,144 +1,14 @@
 import React from 'react';
-import Card from './components/Card';
-import CurrentCard from './components/CurrentCard';
-import Form from './components/Form';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import logo from './images/logo.png';
+import Create from './Pages/Create';
+import Home from './Pages/Home';
+import NotFound from './Pages/NotFound';
+import OpenBox from './Pages/OpenBox';
 import './styles/card.css';
 
 class App extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      name: '',
-      description: '',
-      attr1: '',
-      attr2: '',
-      attr3: '',
-      image: '',
-      rare: '',
-      trunfo: false,
-      arrayCards: [],
-      buttonDisabled: true,
-      imgUrl: '',
-      count: 1,
-      currentCard: '',
-      isSelect: false,
-      haveCard: 0,
-      show: false,
-      id: '',
-    };
-  }
-
-  validateForm = () => {
-    const { name, image, rare, attr1, attr2, attr3 } = this.state;
-
-    const sum = Number(attr1) + Number(attr2) + Number(attr3); // -> Number para transformar string em num parseInt tava dando erro no lint.
-
-    const attrTotal = 300;
-    const attrMax = 99;
-    const attrMin = 0;
-
-    const anyInfo = (
-      name !== ''
-      && image !== ''
-      && rare !== ''
-    );
-
-    const attr = (
-      sum <= attrTotal
-      && attr1 <= attrMax
-      && attr2 <= attrMax
-      && attr3 <= attrMax
-      && attr1 >= attrMin
-      && attr2 >= attrMin
-      && attr3 >= attrMin
-    );
-
-    if (anyInfo && attr) {
-      return false;
-    }
-    return true;
-  }
-
-  hasTrunfo = () => {
-    const { arrayCards } = this.state;
-    return arrayCards.some((item) => item.trunfo);
-  }
-
-  onInputChange = ({ target }) => {
-    this.setState(() => ({
-      [target.name]: target.type === 'checkbox' ? target.checked : target.value,
-    }), () => {
-      const { image, name } = this.state;
-      if (target.name === 'image') {
-        fetch(`https://pokeapi.co/api/v2/pokemon/${image.toLowerCase()}`)
-          .then((response) => response.json())
-          .then((data) => this.setState({
-            id: data.id,
-            imgUrl: data
-              .sprites
-              .versions['generation-v']['black-white'].animated.front_default,
-          }))
-          .catch(() => this.setState((previousState) => previousState));
-      }
-    });
-  };
-
-  onSaveButtonClick = (e) => {
-    e.preventDefault();
-    this.setState((prev) => ({
-      name: '',
-      description: '',
-      image: '',
-      attr1: 0,
-      attr2: 0,
-      attr3: 0,
-      trunfo: false,
-      rare: '',
-      imgUrl: '',
-      arrayCards: [...prev.arrayCards, prev],
-      currentCard: '',
-      haveCard: true,
-      show: false,
-      count: prev.count + 1,
-      id: '',
-    }
-    ));
-  }
-
-  setShow = (param) => {
-    this.setState({
-      show: param,
-    });
-  }
-
-  removeCard = (name) => {
-    const { arrayCards } = this.state;
-    this.setState({
-      arrayCards: arrayCards.filter((item) => item.name !== name),
-      isSelect: false,
-    }, () => {
-      if (arrayCards.length === 0) {
-        this.setState({ haveCard: false });
-      }
-    });
-  }
-
-  selectCard = (name) => {
-    const { arrayCards } = this.state;
-    this.setState({
-      currentCard: arrayCards.find((item) => item.name === name),
-      isSelect: true,
-      show: true,
-    });
-  }
-
   render() {
-    const { name, description, attr1,
-      attr2, attr3, image,
-      rare, trunfo, arrayCards, imgUrl,
-      currentCard, isSelect, haveCard, show, id, buttonDisabled } = this.state;
-
     return (
       <div>
         <img
@@ -146,94 +16,17 @@ class App extends React.Component {
           src={ logo }
           alt="pokemon logo"
         />
-        <div className="divMaster">
-          <div className="divForm">
-            <Form
-              cardName={ name }
-              cardDescription={ description }
-              cardAttr1={ attr1 }
-              cardAttr2={ attr2 }
-              cardAttr3={ attr3 }
-              cardImage={ image }
-              cardRare={ rare }
-              cardTrunfo={ trunfo }
-              hasTrunfo={ this.hasTrunfo() }
-              isSaveButtonDisabled={ this.validateForm() }
-              onInputChange={ this.onInputChange }
-              onSaveButtonClick={ this.onSaveButtonClick }
-            />
-          </div>
-          <div className="preview">
-            <Card
-              cardName={ name }
-              cardDescription={ description }
-              cardAttr1={ attr1 }
-              cardAttr2={ attr2 }
-              cardAttr3={ attr3 }
-              cardImage={ imgUrl }
-              cardRare={ rare }
-              cardTrunfo={ trunfo }
-              id={ id }
-            />
-          </div>
-        </div>
-        { arrayCards.length > 0
-          ? <p className="uDeck">Deck</p> : ''}
-        <div className="deckContainer">
-          {
-            arrayCards.map((item, index) => (
-              <div key={ index } className="cardbox">
-                <Card
-                  cardName={ item.name }
-                  cardDescription={ item.description }
-                  cardAttr1={ item.attr1 }
-                  cardAttr2={ item.attr2 }
-                  cardAttr3={ item.attr3 }
-                  cardImage={ item.imgUrl }
-                  cardTrunfo={ item.trunfo }
-                  cardRare={ item.rare }
-                  id={ item.id }
-                  count={ item.count }
-                />
-                <button
-                  className="selectBtn"
-                  type="button"
-                  onClick={ () => this.selectCard(arrayCards[index].name) }
-                >
-                  Selecionar
-                </button>
-                <button
-                  className="deleteButton"
-                  type="button"
-                  data-testid="delete-button"
-                  onClick={ () => this.removeCard(arrayCards[index].name) }
-                >
-                  Excluir
-                </button>
-              </div>
-            ))
-          }
-        </div>
-        {
-          isSelect
-            ? <div className="current-card">
-              {
-                show ? isSelect && <CurrentCard
-                  currentCard={ currentCard }
-                /> : null
-              }
-              <div className="togglemap">
-                <button
-                  type="button"
-                  onClick={ () => this.setShow(!show) }
-                >
-                  {!show ? 'Show Selected Card' : 'Close'}
-                </button>
-              </div>
-              </div> : null
-        }
+        <BrowserRouter>
+          <Switch>
+            <Route exact path="/poke-tryunfo" component={ Home } />
+            <Route exact path="/create-card" component={ Create } />
+            <Route exact path="/open-box" component={ OpenBox } />
+            <Route component={ NotFound } />
+          </Switch>
+        </BrowserRouter>
       </div>
     );
   }
 }
+
 export default App;

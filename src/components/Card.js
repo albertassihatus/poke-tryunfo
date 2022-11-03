@@ -57,5 +57,6 @@ Card.propTypes = {
   cardRare: PropTypes.string.isRequired,
   cardTrunfo: PropTypes.bool.isRequired,
   count: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired,
 };
 export default Card;

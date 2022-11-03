@@ -38,6 +38,12 @@ body{
     align-items: center;
 }
 
+.back {
+  cursor: pointer;
+  color: red;
+  font-size: 38px;
+}
+
 .divMaster {
   background-image: url('../images/divmaster.jpg');
   background-size: 100%;
@@ -178,7 +184,7 @@ p {
 
 img {
   position: absolute;
-  width: 150px;
+  width: 125px;
   left: 100px;
   margin: auto;
   top: 75px;
@@ -203,9 +209,10 @@ img {
   font-family: 'Segoe UI', 'Roboto', 'Oxygen',
   'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
   sans-serif;
-    position: relative;
-    width: 300px;
-    height: 350px;
+  position: relative;
+  width: 300px;
+  height: 350px;
+  box-shadow: 15px 20px 50px black;
 }
 
 .deckContainer {
@@ -225,6 +232,7 @@ img {
   width: 100px;
   font-size: 18px;
   margin-left: 10px;
+  box-shadow: 15px 20px 50px black;
 }
 
 .selectBtn { 
@@ -234,6 +242,7 @@ img {
   padding: 10px;
   font-size: 18px;
   margin-left: 10px;
+  box-shadow: 15px 20px 50px black;
 }
 #trunfo {
   margin-top: 20px;
@@ -257,10 +266,16 @@ h2 {
 }
 
 .uDeck {
+  position: relative;
+  font-weight: 600;
   color: black;
   font-size: 48px;
   margin-top: 50px;
   margin-bottom: 0;
+  box-shadow: 0 4px 6px black;
+  width: 150px;
+  border-radius: 30px;
+  left: 600px;
 }
 
 .pkbtn {
@@ -344,6 +359,8 @@ h2 {
   position: absolute;
   font-size: 17px;
 }
+
+
 
 /* KeyFrames */
 @-webkit-keyframes gradient-animation {

@@ -1,0 +1,102 @@
+/* stylelint-disable rule-empty-line-before */
+
+/* stylelint-disable property-no-vendor-prefix */
+
+.cardForm {
+  align-items: center;
+  display: flex;
+  height: 450px;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+}
+
+.formBtn {
+  background-color: transparent;
+  background-image: url('../images/formCard.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  border: none;
+  cursor: pointer;
+  height: 100%;
+  transition: all 1s;
+  width: 110%;
+}
+
+.formBtn:hover {
+  animation: bounce 0.8s;
+}
+
+.boxBtn {
+  background-color: transparent;
+  background-image: url('../images/deckCard.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  border: none;
+  cursor: pointer;
+  height: 100%;
+  transition: all 1s;
+  width: 100%;
+}
+
+.boxBtn:hover {
+  animation: bounce 1s;
+}
+
+.errorPage {
+  align-items: center;
+  background-color: white;
+  background-size: 200% 200%;
+  border-radius: 50px 20px;
+  display: flex;
+  height: 10vh;
+  justify-content: center;
+  margin: auto;
+  opacity: 0.93;
+  width: 20%;
+}
+
+.homeBtn {
+  align-items: center;
+  background-color: red;
+  border-radius: 30px;
+  color: white;
+  cursor: pointer;
+  font-size: 24px;
+  height: 10vh;
+  justify-content: center;
+  margin-top: 50px;
+  opacity: 0.93;
+  width: 20%;
+}
+
+.pForm {
+  font-size: 28px;
+  left: 830px;
+  position: absolute;
+  top: 195px;
+}
+
+.pDeck {
+  font-size: 28px;
+  left: 370px;
+  position: absolute;
+  top: 195px;
+}
+
+@keyframes bounce {
+  0%, 20%, 60%, 100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+
+  40% {
+    -webkit-transform: translateY(-20px);
+    transform: translateY(-20px);
+  }
+
+  80% {
+    -webkit-transform: translateY(-10px);
+    transform: translateY(-10px);
+  }
+}

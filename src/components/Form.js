@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+import '../styles/card.css';
 
 class Form extends React.Component {
   render() {
@@ -18,6 +19,7 @@ class Form extends React.Component {
             {' '}
             <input
               data-testid="name-input"
+              placeholder="Nome"
               type="text"
               name="name"
               id="name"
@@ -31,6 +33,7 @@ class Form extends React.Component {
             {' '}
             <input
               data-testid="attr1-input"
+              placeholder="0~99"
               type="number"
               name="attr1"
               id="attr1"
@@ -44,6 +47,7 @@ class Form extends React.Component {
             {' '}
             <input
               data-testid="attr2-input"
+              placeholder="0~99"
               type="number"
               name="attr2"
               id="attr2"
@@ -58,6 +62,7 @@ class Form extends React.Component {
             {' '}
             <input
               data-testid="attr3-input"
+              placeholder="0~99"
               type="number"
               name="attr3"
               id="attr3"
@@ -72,6 +77,7 @@ class Form extends React.Component {
             {' '}
             <input
               data-testid="image-input"
+              placeholder="Nome ou Número Pokedex"
               type="text"
               name="image"
               id="image"
@@ -108,7 +114,7 @@ class Form extends React.Component {
                     checked={ cardTrunfo }
                     onChange={ onInputChange }
                   />
-                  Super Trybe Trunfo
+                  Super Poké Trunfo
                   <br />
                 </label>
               )

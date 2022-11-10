@@ -1,20 +1,25 @@
 {
   "files": {
-    "main.css": "/poke-tryunfo/static/css/main.3831ef8e.css",
-    "main.js": "/poke-tryunfo/static/js/main.3f37c758.js",
+    "main.css": "/poke-tryunfo/static/css/main.1c27d5d0.css",
+    "main.js": "/poke-tryunfo/static/js/main.4db1c53e.js",
     "static/media/divmaster.jpg": "/poke-tryunfo/static/media/divmaster.021610b7e6d45759d79f.jpg",
     "static/media/logo.png": "/poke-tryunfo/static/media/logo.9631a0e0100b336ef8dd.png",
     "static/media/pokebok.png": "/poke-tryunfo/static/media/pokebok.2e85c377d9d570e8ce5b.png",
     "static/media/pokeb.png": "/poke-tryunfo/static/media/pokeb.4d0f791a7a4ee929332a.png",
+    "static/media/box1.png": "/poke-tryunfo/static/media/box1.cde423ac78c76e22a819.png",
     "static/media/wallpaper.jpg": "/poke-tryunfo/static/media/wallpaper.98a0fec319e0af3a3cae.jpg",
     "static/media/formCard.png": "/poke-tryunfo/static/media/formCard.a29d3dd2396a97c61958.png",
     "static/media/deckCard.png": "/poke-tryunfo/static/media/deckCard.cbaa27f030e15b0dfa04.png",
+    "static/media/box5.png": "/poke-tryunfo/static/media/box5.36ff4a38159b70225b88.png",
+    "static/media/box2.png": "/poke-tryunfo/static/media/box2.43eadb3d5d195e7aecb3.png",
+    "static/media/box4.png": "/poke-tryunfo/static/media/box4.c1377699741e83c517f7.png",
+    "static/media/box3.png": "/poke-tryunfo/static/media/box3.b76aa3d20393e3d3c883.png",
     "index.html": "/poke-tryunfo/index.html",
-    "main.3831ef8e.css.map": "/poke-tryunfo/static/css/main.3831ef8e.css.map",
-    "main.3f37c758.js.map": "/poke-tryunfo/static/js/main.3f37c758.js.map"
+    "main.1c27d5d0.css.map": "/poke-tryunfo/static/css/main.1c27d5d0.css.map",
+    "main.4db1c53e.js.map": "/poke-tryunfo/static/js/main.4db1c53e.js.map"
   },
   "entrypoints": [
-    "static/css/main.3831ef8e.css",
-    "static/js/main.3f37c758.js"
+    "static/css/main.1c27d5d0.css",
+    "static/js/main.4db1c53e.js"
   ]
 }

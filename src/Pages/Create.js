@@ -5,6 +5,7 @@ import Card from '../components/Card';
 import CurrentCard from '../components/CurrentCard';
 import Form from '../components/Form';
 import '../styles/card.css';
+import Footer from './Footer';
 
 class Create extends React.Component {
   constructor() {
@@ -18,7 +19,7 @@ class Create extends React.Component {
       rare: '',
       trunfo: false,
       arrayCards: [],
-      buttonDisabled: true,
+      // buttonDisabled: true,
       imgUrl: '',
       count: 1,
       currentCard: '',
@@ -26,7 +27,7 @@ class Create extends React.Component {
       haveCard: 0,
       show: false,
       id: '',
-      storage: [],
+      // storage: [],
       home: false,
     };
   }
@@ -71,7 +72,7 @@ class Create extends React.Component {
     this.setState(() => ({
       [target.name]: target.type === 'checkbox' ? target.checked : target.value,
     }), () => {
-      const { image, name } = this.state;
+      const { image } = this.state;
       if (target.name === 'image') {
         fetch(`https://pokeapi.co/api/v2/pokemon/${image.toLowerCase()}`)
           .then((response) => response.json())
@@ -150,10 +151,11 @@ class Create extends React.Component {
     const { name, attr1, home,
       attr2, attr3, image,
       rare, trunfo, arrayCards, imgUrl,
+      // eslint-disable-next-line no-unused-vars
       currentCard, isSelect, haveCard, show, id } = this.state;
 
     return (
-      <div>
+      <div style={ { height: '600px' } }>
         {home && <Redirect to="/poke-tryunfo" />}
         <div className="divMaster">
           <div className="divForm">
@@ -238,6 +240,7 @@ class Create extends React.Component {
             </div>
           </div>
         ) : null}
+        <Footer />
       </div>
     );
   }

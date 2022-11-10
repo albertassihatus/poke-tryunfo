@@ -4,6 +4,8 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable max-lines */
 import React from 'react';
+import { IoChevronBackCircleSharp } from 'react-icons/io5';
+import { Redirect } from 'react-router-dom';
 import { boxFour, boxLegends, boxOne, boxThree, boxTwo, raridade } from '../mock/Pokemons';
 import Card from './Card';
 import CurrentCard from './CurrentCard';
@@ -13,20 +15,21 @@ class Deck extends React.Component {
     super();
     this.state = {
       arrayCards: [],
-      name: 'Bulbasaur',
-      attr1: '0',
-      attr2: '0',
-      attr3: '0',
-      imgUrl: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/1.gif',
+      name: 'Trainer Hatus',
+      attr1: '99',
+      attr2: '99',
+      attr3: '99',
+      imgUrl: 'https://tcm-assets.pokecharms.com/modern_trainers/321bfd44-463e-468a-8ca0-c0e8d1a7f5a5.png',
       count: 1,
-      image: 'bulbasaur',
-      rare: 'normal',
+      image: 'trainer',
+      rare: 'muito raro',
       trunfo: false,
       isSelect: false,
       haveCard: 0,
-      id: '1',
+      id: '',
       currentCard: '',
       show: false,
+      home: false,
     };
   }
 
@@ -61,40 +64,49 @@ class Deck extends React.Component {
     }));
   }
 
+  customAlert = (n) => {
+    // eslint-disable-next-line no-alert
+    alert(`${n} Cards Adcionados ao seu Deck`);
+  }
+
   boxone = (e) => {
-    const deck = 30;
+    const deck = 5;
     const min = 0;
     const max = 20;
     for (let index = 0; index < deck; index += 1) {
       this.stateBox(boxOne, min, max);
     }
+    this.customAlert(deck);
   };
 
   boxtwo = () => {
-    const deck = 30;
+    const deck = 5;
     const min = 0;
     const max = 40;
     for (let index = 0; index < deck; index += 1) {
       this.stateBox(boxTwo, min, max);
     }
+    this.customAlert(deck);
   };
 
   boxthree = () => {
-    const deck = 30;
+    const deck = 5;
     const min = 40;
     const max = 60;
     for (let index = 0; index < deck; index += 1) {
       this.stateBox(boxThree, min, max);
     }
+    this.customAlert(deck);
   };
 
   boxfour = () => {
-    const deck = 30;
+    const deck = 5;
     const min = 60;
     const max = 90;
     for (let index = 0; index < deck; index += 1) {
       this.stateBox(boxFour, min, max);
     }
+    this.customAlert(deck);
   };
 
   boxLegends = () => {
@@ -104,6 +116,7 @@ class Deck extends React.Component {
     for (let index = 0; index < deck; index += 1) {
       this.stateBox(boxLegends, min, max);
     }
+    this.customAlert(deck);
   };
 
   removeCard = (count) => {
@@ -129,41 +142,57 @@ class Deck extends React.Component {
 
   render() {
     const { currentCard, arrayCards, name, attr1, attr2,
-      attr3, image, trunfo, rare, id, imgUrl, isSelect, haveCard, show } = this.state;
+      attr3, image, trunfo, rare, id, imgUrl, isSelect, haveCard, show, home } = this.state;
     return (
-      <div>
-        <div className="divMaster">
+      <div className="boxContainer">
+        {home && <Redirect to="/poke-tryunfo" />}
+        <div className="boxMaster">
           <button
+            className="box1"
             type="submit"
             onClick={ this.boxone }
+            aria-label="tnb"
           >
-            BOX ONE
+            <p className="hiddenOne">NEWBIE</p>
           </button>
+
           <button
+            className="box2"
             type="submit"
             onClick={ this.boxtwo }
+            aria-label="tnb"
           >
-            BOX TWO
+            <p>SMALL</p>
           </button>
           <button
+            className="box3"
             type="submit"
             onClick={ this.boxthree }
+            aria-label="tnb"
           >
-            BOX TRHEE
+            <p>AVERAGE</p>
           </button>
           <button
+            className="box4"
             type="submit"
             onClick={ this.boxfour }
+            aria-label="tnb"
           >
-            BOX FOUR
+            <p>GIANT</p>
           </button>
           <button
+            className="box5"
             type="submit"
             onClick={ this.boxLegends }
+            aria-label="tnb"
           >
-            LEGENDARIES
+            <p>LEGENDARY</p>
           </button>
         </div>
+        <IoChevronBackCircleSharp
+          onClick={ () => this.setState({ home: true }) }
+          className="back"
+        />
         { arrayCards.length > 0
           ? <p className="uDeck">Deck</p> : ''}
         <div className="deckContainer">

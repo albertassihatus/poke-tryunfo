@@ -84,6 +84,26 @@
   top: 195px;
 }
 
+.footer {
+  align-items: center;
+  background-color: rgba(36, 167, 255, 0.829);
+  bottom: 0;
+  display: flex;
+  font-size: 22px;
+  height: 40px;
+  justify-content: center;
+  position: fixed;
+  width: 100%;
+}
+
+.icons {
+  color: black;
+  display: flex;
+  justify-content: space-between;
+  text-decoration: none;
+  width: 100px;
+}
+
 @keyframes bounce {
   0%, 20%, 60%, 100% {
     -webkit-transform: translateY(0);

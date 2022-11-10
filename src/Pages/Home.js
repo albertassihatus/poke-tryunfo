@@ -1,6 +1,7 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom';
 import '../styles/home.css';
+import Footer from './Footer';
 
 class Home extends React.Component {
   constructor() {
@@ -15,8 +16,8 @@ class Home extends React.Component {
     const { form, box } = this.state;
     return (
       <main>
-        {form && <Redirect to="/create-card" />}
-        {box && <Redirect to="/open-box" />}
+        {form && <Redirect to="/poke-tryunfo/create-card" />}
+        {box && <Redirect to="/poke-tryunfo/open-box" />}
         <div className="divMaster">
           <div className="cardForm">
             <button
@@ -43,6 +44,7 @@ class Home extends React.Component {
             </p>
           </div>
         </div>
+        <Footer />
       </main>
     );
   }

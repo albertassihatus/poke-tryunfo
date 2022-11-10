@@ -19,8 +19,8 @@ class App extends React.Component {
         <BrowserRouter>
           <Switch>
             <Route exact path="/poke-tryunfo" component={ Home } />
-            <Route exact path="/create-card" component={ Create } />
-            <Route exact path="/open-box" component={ OpenBox } />
+            <Route exact path="/poke-tryunfo/create-card" component={ Create } />
+            <Route exact path="/poke-tryunfo/open-box" component={ OpenBox } />
             <Route component={ NotFound } />
           </Switch>
         </BrowserRouter>
